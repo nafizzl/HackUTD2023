@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    HELLO, PRESS BUTTON
+    <form action='/chatbot' method="post">
+        <input type="submit" name="homeButton" value="Back to Home">
+        <input type="text" name="userInput" placeHolder="Ask your inquiry">
+        <input type="submit" name="sendButton" value="Send Message">
+    </form>
+    <h1>{{ jakeTruth|safe }}</h1>
+</body>
+</html>
