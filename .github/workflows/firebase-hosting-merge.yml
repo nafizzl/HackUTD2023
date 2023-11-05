@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: statefarm-chatbot # Set default working directory for all run steps
+        working-directory: ./statefarm-chatbot # Set default working directory for all run steps
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node.js environment
