@@ -1,7 +1,9 @@
-from flask import Flask, redirect, url_for, request, jsonify, render_template
-from google.cloud import dialogflow
+from flask import Flask, redirect, url_for, request, jsonify, render_template 
+from google.cloud import dialogflow_v2
+from google.api_core.exceptions import InvalidArgument
 
 stateBot = Flask(__name__)                              # create Flask instance
+dialogFlowClient = dialogflow_v2.SessionsClient()       # create DialogFlow session client
 
 @stateBot.route('/', methods = ["GET", "POST"])
 def bot():
@@ -16,10 +18,21 @@ def chatBot():
         userInput = request.json["userInput"]           # "userInput" is received from Vue.js
 
         # add code for processing the userInput request...
-        botOutput = process(userInput)
+        jake = dialogFlowClient.session_path('project-id', 'sess-id')          # assign session via client
+        # replace project-id and sess-id with actuall project and uniq sess sid
+        usrTxt = dialogflow_v2.TextInput(text=userInput, language_code='en-US')
+        que = dialogflow_v2.QueryInput(text=usrTxt)                            # input message with US English and send to query
 
-        return jsonify({"botOutput" : botOutput})       # output "botOutput", bot's response
-    
+        try:    
+            jakeTalk = dialogFlowClient.detect_intent(session=jake, query_input=que)    # get the input and process to output something else
+
+            jakeTruth = jakeTalk.query_result.fulfillment_text      # get the output of the query
+
+            return jsonify({"botOutput" : jakeTruth})       # output "botOutput", bot's response
+
+        except InvalidArgument as err:
+            return jsonify({"botOutput" : "Error:" + str(err)})     # output 
+
     elif request.method() == "POST" and request.form.get("button") == "Back to Home":
         return render_template("botHome.html")          # go back to home page
     
