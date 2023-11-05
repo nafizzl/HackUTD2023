@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "statefarm-chatbot/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
