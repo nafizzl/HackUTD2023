@@ -22,7 +22,7 @@
       <span class="text-lg font-bold mt-5">
         <img src="@/assets/TechStack.png" alt="Tech Stack img" class="h-60"> <!-- Adjust the path to your logo and the height class as needed -->
         </span>
-      <p class="text-gray-400">Made with &lt3 (and caffiene) at HackUTD 2023</p>
+      <p class="text-gray-400">Made with &lt3 (and caffeine) at HackUTD 2023</p>
     </main>
 
     <!-- Footer -->
