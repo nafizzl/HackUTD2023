@@ -1,10 +1,8 @@
 # HackUTD 2023: Statefarm ChatBot
-Our project is submitted under the State Farm sponsored challenge.
 
-Our idea is to create a chatbot integrated with many features suitable for small business owners. As a middleman between the client and a human employee, the chatbot serves to save time by 
--  fulfilling small tasks for current customers
--  guiding new customers
--  incorporating new tasks not found with typical B2C interaction.
+https://devpost.com/software/jakebot
+
+HackUTD's State Farm Design Challenge: Second Place Winner
 
 Inspiration
 Small businesses are often volatile and require quick response and intervention when something goes away from normal. A broken window, or malfunctioning machinery can be devastating to a small business. We were inspired by conversational models such as GPT and Claude, and tools that take advantage of a multitude of inputs such as documents and photos.
